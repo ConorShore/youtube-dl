@@ -343,6 +343,11 @@ def parseOpts(overrideArguments=None):
         dest='download_archive',
         help='Download only videos not listed in the archive file. Record the IDs of all downloaded videos in it.')
     selection.add_option(
+        '--record-date',
+        action='store_true',
+        dest='record_date', default=None,
+        help='This option will cause files with date out of range added to the file specified in download_archive.')
+    selection.add_option(
         '--include-ads',
         dest='include_ads', action='store_true',
         help='Download advertisements as well (experimental)')

@@ -190,6 +190,9 @@ Alternatively, refer to the [developer instructions](#developer-instructions) fo
     --download-archive FILE              Download only videos not listed in the
                                          archive file. Record the IDs of all
                                          downloaded videos in it.
+    --record-date                        This option will cause files with date
+                                         out of range added to the file
+                                         specified in download_archive.
     --include-ads                        Download advertisements as well
                                          (experimental)
 

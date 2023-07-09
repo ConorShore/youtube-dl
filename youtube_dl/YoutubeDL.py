@@ -223,6 +223,8 @@ class YoutubeDL(object):
     download_archive:  File name of a file where all downloads are recorded.
                        Videos already present in the file are not downloaded
                        again.
+    record_date:       This option will cause files with date out of range to be 
+                       added to the file specified in download_archive 
     cookiefile:        File name where cookies should be read from and dumped to.
     nocheckcertificate:Do not verify SSL certificates
     prefer_insecure:   Use HTTP instead of HTTPS to retrieve information.
@@ -756,6 +758,10 @@ class YoutubeDL(object):
         if date is not None:
             dateRange = self.params.get('daterange', DateRange())
             if date not in dateRange:
+                record_date = self.params.get('record_date')
+                download_archive = self.params.get('download_archive')
+                if (record_date is not None) and (download_archive is not None):
+                    self.record_download_archive(info_dict)
                 return '%s upload date is not in range %s' % (date_from_str(date).isoformat(), dateRange)
         view_count = info_dict.get('view_count')
         if view_count is not None:
